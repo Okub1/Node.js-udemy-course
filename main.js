@@ -6,24 +6,22 @@ const person = {
     }
 };
 
-// spread operator
-const copiedPerson = {...person};
-console.log(copiedPerson);
 
-const hobbies = ['Sports', 'Cooking'];
+// object destructuring syntax
+const printName = ({ name }) => {
+    console.log(name);
+}
 
-// for (let hobby of hobbies) {
-//     console.log(hobby);
-// }
+printName(person);
 
-// console.log(hobbies.map(hobby => 'Hobby: ' + hobby));
-// spread operator
-const copiedArray = [...hobbies];
-console.log(copiedArray);
+// destructuring object's properties into two constants
+// variables must have same names as object's properties
+const { name, age } = person;
+console.log(name, age);
 
-// rest operator
-const toArray = (...args) => {
-    return args;
-};
 
-console.log(toArray(1, 2, 3, 4));
+const hobbies = ['Sports', 'Cooking', 'Programming'];
+// array destructuring, variables could be any name
+// in this case, we are pulling first two values of an array
+const [hobby1, hobby2] = hobbies;
+console.log(hobby1, hobby2);
