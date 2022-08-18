@@ -1,27 +1,29 @@
-const person = {
-    name: 'Jacob',
-    age: 24,
-    greet() {
-        console.log('Hi, I am ' + this.name);
-    }
+
+const fetchData = () => {
+    const promise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('Done!');
+        }, 1500)
+    });
+    return promise;
 };
 
 
-// object destructuring syntax
-const printName = ({ name }) => {
-    console.log(name);
-}
+// asynchronous code
+// even if it was only 1 ms.
+setTimeout(() => {
+    console.log('Timer is done');
+    fetchData()
+        .then(text1 => {
+            console.log(text1);
+            return fetchData();
+        })
+        .then(text2 => {
+            console.log(text2);
+        });
+}, 2000);
 
-printName(person);
-
-// destructuring object's properties into two constants
-// variables must have same names as object's properties
-const { name, age } = person;
-console.log(name, age);
-
-
-const hobbies = ['Sports', 'Cooking', 'Programming'];
-// array destructuring, variables could be any name
-// in this case, we are pulling first two values of an array
-const [hobby1, hobby2] = hobbies;
-console.log(hobby1, hobby2);
+// synchronous code
+// it will run immediately, as javascript does not block execution
+console.log('Hello!');
+console.log('Hi');
