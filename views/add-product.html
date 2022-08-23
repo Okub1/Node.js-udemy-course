@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add product</title>
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
     <header>
@@ -14,13 +15,14 @@
                     <a href="/">Shop</a>
                 </li>
                 <li>
-                    <a href="/admin/add-product">Add product</a>
+                    <a href="/admin/add-product" class="active">Add product</a>
                 </li>
             </ul>
         </nav>
     </header>
     <main>
         <form action="/admin/add-product" method="POST">
+            <label for="title">Name</label>
             <input type="text" name="title">
             <button type="submit">Add product</button>
         </form>
