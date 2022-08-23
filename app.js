@@ -1,15 +1,18 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 
 const app = express();
 
-app.use((req, res, next) => {
-    console.log('in the middleware');
-    next(); // allows to continue to next middleware
-});
+const adminRoutes = require('./routes/admin');
+const shopRoutes = require('./routes/shop');
 
-app.use((req, res, next) => {
-    console.log('in another middleware');
-    res.send('<h1>Hello from express!</h1>');
+app.use(bodyParser.urlencoded({extended: false}));
+
+app.use('/admin', adminRoutes);
+app.use(shopRoutes);
+
+app.use('/', (req, res, next) => {
+    res.status(404).send('<h1>404 - Not Found</h1><br><a href="/"><button>Home</button></a>');
 });
 
 // visit localhost:3000 in browser
