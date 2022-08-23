@@ -1,7 +1,16 @@
-const http = require('http');
-const routes = require('./routes');
+const express = require('express');
 
-const server = http.createServer(routes.handler);
+const app = express();
 
-// visit localhost:3000 in browser, to see my first website! :)
-server.listen(3000);
+app.use((req, res, next) => {
+    console.log('in the middleware');
+    next(); // allows to continue to next middleware
+});
+
+app.use((req, res, next) => {
+    console.log('in another middleware');
+    res.send('<h1>Hello from express!</h1>');
+});
+
+// visit localhost:3000 in browser
+app.listen(3000);
