@@ -23,4 +23,7 @@ app.use(shopRoutes);
 app.use(errorsController.get404);
 
 // visit localhost:3000 in browser
-app.listen(3000);
+// process.env.PORT is required for heroku deployment...
+// in case if there is no port assigned via env, then
+// default is 3000
+app.listen(process.env.PORT || 3000);
