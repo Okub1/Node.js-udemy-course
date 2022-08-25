@@ -17,5 +17,6 @@ To setup project you need Node.js (at least version v16.17.0) and npm (at least 
     ```npm start```
 
 4. visit [localhost at port 3000](http://localhost:3000)  
+    (project is currently deployed at https://my-first-website-2.herokuapp.com/)
 
 5. enjoy :)
