@@ -1,0 +1,21 @@
+{
+  "name": "node-js-udemy-course",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./server/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cd server && npm start",
+    "build": "cd server && npm install && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Okub1/Node.js-udemy-course.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Okub1/Node.js-udemy-course/issues"
+  },
+  "homepage": "https://github.com/Okub1/Node.js-udemy-course#readme"
+}
