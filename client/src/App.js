@@ -18,6 +18,7 @@ function App() {
         <p>
           {!data ? "Loading..." : data}
         </p>
+        Hi i am jacob! and this is a test build!
       </header>
     </div>
   );

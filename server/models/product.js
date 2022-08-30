@@ -12,4 +12,8 @@ module.exports = class Product {
     static fetchAll() {
         return products;
     }
+
+    static findById() {
+        
+    }
 }
