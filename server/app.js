@@ -30,10 +30,10 @@ app.use('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'))
 });
 
-// visit localhost:3000 in browser
+// visit localhost:3001 in browser
 // process.env.PORT is required for heroku deployment...
 // in case if there is no port assigned via env, then
-// default is 3000
+// default is 3001
 
 const port = process.env.PORT || 3001;
 

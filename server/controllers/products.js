@@ -13,7 +13,13 @@ exports.postAddProduct = (req, res, next) => {
     res.redirect('/');
 };
 
+// returns all products 
 exports.getProducts = (req, res, next) => {
     const products = Product.fetchAll();
-    res.render('shop', {products: products, pageTitle: 'My products', path: '/'});
+    res.json({products: products});
 }
+
+exports.getProduct = (req, res, next) => {
+    const productId = req.params.productId;
+    res.json({productId: productId});
+};
