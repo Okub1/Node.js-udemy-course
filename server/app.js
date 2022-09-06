@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const errorsController = require('./controllers/errors');
 
@@ -19,6 +20,10 @@ const apiRoutes = require('./routes/api');
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
+
+// letting server use cors
+
+app.use(cors());
 
 // app.use('/admin', adminData);
 // app.use(shopRoutes);

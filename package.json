@@ -8,7 +8,7 @@
     "start": "cd server && npm start",
     "build": "cd server && npm install && npm run build",
     "dev": "npm run build && cd server && npm run dev",
-    "watch": "cd client && npm run watch",
+    "watch": "cd client && npm start",
     "full-dev": "npm-run-all --parallel dev watch"
   },
   "repository": {
