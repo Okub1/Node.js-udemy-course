@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 // DB
-const db = require('./utils/database');
+const sequelize = require('./utils/database');
 
 const errorsController = require('./controllers/errors');
 
@@ -36,6 +36,11 @@ app.use('/api', apiRoutes);
 app.use('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'))
 });
+
+sequelize.sync().then(result => {
+    // console.log(result);
+})
+.catch(err => console.log(err, '[ERROR]: app.js::sequelize.sync()'));
 
 // visit localhost:3001 in browser
 // process.env.PORT is required for heroku deployment...
