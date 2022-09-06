@@ -4,6 +4,8 @@ Udemy course: https://www.udemy.com/course/nodejs-the-complete-guide
 # Prerequisites
 
 To setup project you need Node.js (at least version v16.17.0) and npm (at least version 8.17.0).
+There is MySQL required with root without password, and schema called "node-complete", this will  
+be definitely changed in the future as it bring inconvenience of installing mysql...
 
 # Installation
 
