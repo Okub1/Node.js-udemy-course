@@ -15,4 +15,7 @@ router.get('/products/', productsController.getProducts);
 // GET /api/products/:productId (wildcard)
 router.get('/products/:productId', productsController.getProduct);
 
+// POST /api/products/add
+router.post('/products/add', productsController.postAddProduct);
+
 module.exports = router;
