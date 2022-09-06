@@ -3,6 +3,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
+// DB
+const db = require('./utils/database');
+
 const errorsController = require('./controllers/errors');
 
 const app = express();
@@ -22,7 +25,6 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // letting server use cors
-
 app.use(cors());
 
 // app.use('/admin', adminData);
