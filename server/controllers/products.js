@@ -1,15 +1,5 @@
 const Product = require('../models/product');
 
-// push dummy products to database
-let product = new Product(1, 'Book', 'lorem ipsum aslkdjaljfl', '/img/products/1.jpg');
-product.save();
-product = new Product(2, 'Glass');
-product.save();
-product = new Product(3, 'Phone');
-product.save();
-product = new Product(4, 'Chewing gum');
-product.save();
-
 exports.getAddProduct = (req, res, next) => {
     res.render('add-product', {
         pageTitle: 'Add product', 
@@ -18,22 +8,36 @@ exports.getAddProduct = (req, res, next) => {
 };
 
 exports.postAddProduct = (req, res, next) => {
-    const product = new Product(req.body.id, req.body.title);
-    product.save();
+    const product = new Product(
+        null,
+        req.body.title,
+        req.body.description,
+        req.body.image,
+        req.body.price,
+        req.body.salePrice
+    );
+    product.save()
+        .then(() => {})
+        .catch(err => console.log('controllers/products.js::postAddProduct()', err));
     res.redirect('/');
 };
 
 // returns all products 
 exports.getProducts = (req, res, next) => {
-    const products = Product.fetchAll();
-    res.json(products);
+    const products = Product.fetchAll()
+        .then(([rows, fieldData]) => {
+            res.json(rows);
+            console.log('hi mom');
+        })
+        .catch(err => console.log('controllers/products.js::getProducts()', err));
 }
 
 // returns specific product
 exports.getProduct = (req, res, next) => {
     const productId = req.params.productId;
-    Product.findById(productId, product => {
-        console.log(product, 'hi mom!');
-        res.json(product);
-    });
+    Product.findById(productId)
+        .then(([product]) => {
+            res.json(product[0]); // retarded syntax due to sql returns... WHERE IS MY ORM AT?!?!?!!?!?!?!?!?!?!!!
+        })
+        .catch(err => console.log('controllers/products.js::getProduct()', err));
 };
